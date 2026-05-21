@@ -437,6 +437,27 @@ textarea.form-control {
     font-size: 0.8125rem;
 }
 
+/* ── Dashboard Styles ── */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.dashboard-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.dashboard-card-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-shrink: 0;
+}
+
 /* ── Mobile & Tablet Responsiveness ── */
 @media (max-width: 1024px) {
     .features-grid {
@@ -459,6 +480,12 @@ textarea.form-control {
     
     .pricing-card.featured {
         transform: none;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 0 1rem;
     }
     
     .bento-grid {
@@ -539,5 +566,16 @@ textarea.form-control {
     
     .footer-col .logo {
         justify-content: center;
+    }
+    
+    .dashboard-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+    }
+    
+    .dashboard-card-actions {
+        width: 100%;
+        justify-content: flex-end;
     }
 }

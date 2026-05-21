@@ -6,7 +6,7 @@
 <section class="container" style="padding: 4rem 0;">
     <h1 style="font-size: 2.5rem; margin-bottom: 3rem; letter-spacing: -0.025em;">Welcome back, {{ auth()->user()->name }}</h1>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+    <div class="dashboard-grid">
         <!-- Left: My Events (Organizing) -->
         <div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
@@ -25,7 +25,7 @@
                             $bg = $event->background_image;
                             $style = $bg ? "background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{$bg}'); background-size: cover; background-position: center; border: none; color: white;" : "";
                         @endphp
-                        <div class="card" style="display: flex; justify-content: space-between; align-items: center; {{ $style }}">
+                        <div class="card dashboard-card" style="{{ $style }}">
                             <div>
                                 <h4 style="margin-bottom: 0.25rem; {{ $bg ? 'color: white;' : '' }}">{{ $event->title }}</h4>
                                 <p style="font-size: 0.875rem; color: {{ $bg ? 'rgba(255,255,255,0.7)' : 'var(--text-muted)' }};">{{ $event->date->format('M d, Y') }} • {{ $event->participants_count }} Registered</p>
@@ -53,12 +53,12 @@
                             $bg = $event->background_image;
                             $style = $bg ? "background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{$bg}'); background-size: cover; background-position: center; border: none; color: white;" : "";
                         @endphp
-                        <div class="card" style="display: flex; justify-content: space-between; align-items: center; {{ $style }}">
+                        <div class="card dashboard-card" style="{{ $style }}">
                             <div>
                                 <h4 style="margin-bottom: 0.25rem; {{ $bg ? 'color: white;' : '' }}">{{ $event->title }}</h4>
                                 <p style="font-size: 0.875rem; color: {{ $bg ? 'rgba(255,255,255,0.7)' : 'var(--text-muted)' }};">By {{ $event->organizer->name }} • {{ $event->date->format('M d, Y') }}</p>
                             </div>
-                            <div style="display: flex; gap: 0.5rem;">
+                            <div class="dashboard-card-actions">
                                 @if(Auth::user()->registrations()->where('event_id', $event->id)->where('status', 'confirmed')->exists())
                                     <span style="background: #10b981; color: white; font-size: 0.65rem; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 4px; text-transform: uppercase; align-self: center;">Joined</span>
                                 @else
