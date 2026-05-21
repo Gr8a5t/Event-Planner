@@ -78,6 +78,7 @@ COPY --from=frontend /app/public/build ./public/build
 # Copy config files
 COPY docker/nginx.conf /etc/nginx/http.d/default.conf
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY docker/fpm_custom.conf /usr/local/etc/php-fpm.d/zz-custom-fpm.conf
 COPY docker/entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
