@@ -1,0 +1,24 @@
+.git
+.env
+.env.backup
+.env.production
+node_modules
+vendor
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+public/build
+public/hot
+public/storage
+tests
+.phpunit.cache
+.phpunit.result.cache
+*.log
+.idea
+.vscode
+.cursor
+.zed
+Thumbs.db
+.DS_Store
+EVENT SYSTEM MANAGEMENT PROPOSAL.pdf
