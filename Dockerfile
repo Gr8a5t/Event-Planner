@@ -43,7 +43,6 @@ RUN apk add --no-cache \
     supervisor \
     sqlite \
     sqlite-dev \
-    postgresql-dev \
     curl \
     libpng-dev \
     libjpeg-turbo-dev \
@@ -58,7 +57,6 @@ RUN apk add --no-cache \
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install \
     pdo_sqlite \
-    pdo_pgsql \
     mbstring \
     exif \
     pcntl \

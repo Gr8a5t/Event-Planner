@@ -17,22 +17,20 @@ if [ -z "$APP_KEY" ] || [[ "$APP_KEY" != base64:* ]]; then
 fi
 
 # ------------------------------------
-# SQLite: Use persistent disk at /data if using sqlite
+# SQLite: Use persistent disk at /data
 # ------------------------------------
-if [ "$DB_CONNECTION" = "sqlite" ]; then
-    DB_PATH="/data/database.sqlite"
+DB_PATH="/data/database.sqlite"
 
-    if [ ! -f "$DB_PATH" ]; then
-        echo "📦 Creating SQLite database..."
-        touch "$DB_PATH"
-    fi
-
-    chown www-data:www-data "$DB_PATH"
-    chmod 664 "$DB_PATH"
-
-    # Symlink so Laravel finds it at the expected path
-    ln -sf "$DB_PATH" /var/www/html/database/database.sqlite
+if [ ! -f "$DB_PATH" ]; then
+    echo "📦 Creating SQLite database..."
+    touch "$DB_PATH"
 fi
+
+chown www-data:www-data "$DB_PATH"
+chmod 664 "$DB_PATH"
+
+# Symlink so Laravel finds it at the expected path
+ln -sf "$DB_PATH" /var/www/html/database/database.sqlite
 
 # ------------------------------------
 # Storage: Link public storage
