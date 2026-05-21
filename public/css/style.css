@@ -459,54 +459,6 @@ textarea.form-control {
 }
 
 /* ── Mobile & Tablet Responsiveness ── */
-@media (max-width: 1024px) {
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        perspective: none;
-        padding: 0 1rem;
-    }
-    
-    .feature-card {
-        height: auto;
-        transform: none !important;
-    }
-    
-    .pricing-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 0 1rem;
-    }
-    
-    .pricing-card.featured {
-        transform: none;
-    }
-    
-    .dashboard-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-        padding: 0 1rem;
-    }
-    
-    .bento-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        gap: 1.5rem;
-    }
-    
-    .bento-card {
-        grid-area: auto !important;
-        height: auto;
-        min-height: 280px;
-    }
-    
-    .card-tall .bento-visual {
-        width: 55%;
-        bottom: -10%;
-        right: -5%;
-    }
-}
-
 @media (max-width: 768px) {
     .navbar-content {
         display: flex;
@@ -545,6 +497,18 @@ textarea.form-control {
         font-size: 1.875rem;
     }
     
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        perspective: none;
+        padding: 0 1rem;
+    }
+    
+    .feature-card {
+        height: auto;
+        transform: none !important;
+    }
+    
     .detail-row {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -553,6 +517,34 @@ textarea.form-control {
     
     .detail-row.reverse {
         direction: ltr;
+    }
+    
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .pricing-card.featured {
+        transform: none;
+    }
+    
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 1.5rem;
+    }
+    
+    .bento-card {
+        grid-area: auto !important;
+        height: auto;
+        min-height: 280px;
+    }
+    
+    .card-tall .bento-visual {
+        width: 55%;
+        bottom: -10%;
+        right: -5%;
     }
     
     .footer-grid {
@@ -566,6 +558,12 @@ textarea.form-control {
     
     .footer-col .logo {
         justify-content: center;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 0 1rem;
     }
     
     .dashboard-card {
