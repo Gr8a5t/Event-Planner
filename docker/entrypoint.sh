@@ -3,6 +3,9 @@ set -e
 
 echo "🚀 Starting Event Planner deployment..."
 
+# Ensure .env file exists so artisan commands don't crash
+touch /var/www/html/.env
+
 # ------------------------------------
 # APP_KEY: Generate if not set
 # ------------------------------------
