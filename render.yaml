@@ -18,9 +18,27 @@ services:
       - key: APP_KEY
         sync: false  # Will be auto-generated on first boot if empty
       - key: DB_CONNECTION
-        value: sqlite
+        value: pgsql
+      - key: DB_HOST
+        fromDatabase:
+          name: event-planner-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: event-planner-db
+          property: port
       - key: DB_DATABASE
-        value: /data/database.sqlite
+        fromDatabase:
+          name: event-planner-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: event-planner-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: event-planner-db
+          property: password
       - key: SESSION_DRIVER
         value: database
       - key: CACHE_STORE
@@ -31,7 +49,8 @@ services:
         value: stderr
       - key: FILESYSTEM_DISK
         value: local
-    disk:
-      name: event-planner-data
-      mountPath: /data
-      sizeGB: 1
+
+databases:
+  - name: event-planner-db
+    plan: free
+    region: oregon
